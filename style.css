@@ -1,0 +1,186 @@
+:root {
+  --clr-primary-violet: hsl(257, 40%, 49%);
+  --clr-primary-pink: hsl(300, 69%, 71%);
+
+  --ff-body: "Open Sans", sans-serif;
+  --ff-headings: "Poppins", sans-serif;
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  background-image: url(images/bg-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--clr-primary-violet);
+  min-height: 100vh;
+}
+
+main {
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.page__title {
+  font-family: var(--ff-headings);
+  font-size: 1.5rem;
+  font-weight: var(--fw-semibold);
+}
+
+.page__paragraph {
+  font-family: var(--ff-body);
+  font-size: 0.9rem;
+  font-weight: var(--fw-regular);
+}
+
+.page__button {
+  justify-self: center;
+  width: 70%;
+  padding: 0.6rem 0;
+  border-radius: 50px;
+  border: none;
+  font-family: var(--ff-headings);
+  font-weight: var(--fw-regular);
+  font-size: 0.9rem;
+  color: var(--clr-primary-violet);
+  cursor: pointer;
+}
+
+.page__button:hover {
+  background-color: var(--clr-primary-pink);
+  color: white;
+}
+
+.header__logo {
+  transform: scale(0.5) translateX(-30%);
+  padding: 0.5rem;
+  margin: 0px;
+}
+
+footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.footer__logo {
+  filter: invert(100%) sepia(0%) saturate(17%) hue-rotate(13deg)
+    brightness(107%) contrast(104%);
+  width: 2.4rem;
+  padding: 0.4rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.footer__logo:hover {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(60%) saturate(3645%)
+    hue-rotate(231deg) brightness(96%) contrast(88%);
+}
+
+@media (min-width: 600px) {
+  body {
+    background-image: url(images/bg-desktop.svg);
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+
+  .page__image {
+    grid-row-start: 1;
+    grid-row-end: 5;
+  }
+
+  .page__title {
+    font-size: 2rem;
+    padding-top: 4rem;
+    padding-right: 4rem;
+    padding-left: 2rem;
+  }
+
+  .page__paragraph {
+    padding-right: 4rem;
+    padding-left: 2rem;
+  }
+
+  .page__button {
+    margin-left: 2rem;
+    width: 30%;
+    justify-self: left;
+  }
+
+  footer {
+    justify-content: right;
+    margin-right: 2rem;
+  }
+}
